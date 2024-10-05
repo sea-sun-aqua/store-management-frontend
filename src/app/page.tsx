@@ -1,9 +1,5 @@
-// pages/products.tsx
-import ProductList from './components/ProductList';
-import products from './data/products'
+// import Login from './(auth)/login/page';
+import MenuPage from './menu/page';
+import '@/globals.css'
 
-const Products = () => {
-  return <ProductList products={products} />;
-};
-
-export default Products;
+export default MenuPage;
