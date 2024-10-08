@@ -1,7 +1,7 @@
 export default function ProductInInventoryPage() {
     return (
         <>
-            <h2>Helllllllllll</h2>
+            <h2>Product</h2>
         </>
     )
 }
