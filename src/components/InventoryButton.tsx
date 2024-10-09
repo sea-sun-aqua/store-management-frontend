@@ -1,15 +1,15 @@
+import Link from "next/link";
+
 interface InventoryButtonProps {
     title: string;
+    path: string;
 }
 
-const InventoryButton: React.FC<InventoryButtonProps> = ({ title }) => {
+const InventoryButton: React.FC<InventoryButtonProps> = ({ title, path }) => {
     return (
-        <div className="bg-black flex justify-self-center">
-            <div className="flex justify-center p-4 rounded-xl 
-                            opacity-90 font-black text-black bg-sky-300 hover:bg-sky-500">
-                {title}
-            </div>
-        </div>
+        <Link href={path} className="p-4 bg-sky-400 hover:bg-sky-700 rounded-xl">
+            {title}
+        </Link>
     );
 };
 
