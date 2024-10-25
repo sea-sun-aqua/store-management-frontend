@@ -1,4 +1,3 @@
-import "@/globals.css"
 import InventoryCard from '@/components/InventoryCard';
 import InventoryList from "@/components/InventoryList";
 import InventoryButton from "@/components/InventoryButton";
