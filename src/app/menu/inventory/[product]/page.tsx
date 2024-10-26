@@ -10,7 +10,7 @@ export default function ProductInInventoryPage() {
                 </div>
 
                 <div className="mx-32 my-16 p-20 pt-10 pb-20 bg-white text-black">
-                    <div className="text-center p-10 text-black text-3xl font-black0 ">
+                    <div className="text-center p-10 text-black text-3xl font-black0">
                         New Product
                     </div>
 

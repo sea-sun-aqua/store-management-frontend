@@ -1,9 +1,6 @@
-import InventoryCard from '@/components/InventoryCard';
-import InventoryList from "@/components/InventoryList";
-import InventoryButton from "@/components/InventoryButton";
-import InventoryListHeader from "@/components/InventoryListHeader";
-import InventoryNavLink from "@/components/InventoryNavLink";
-import Link from "next/link";
+import List from "@/components/InventoryList";
+import ListHeader from "@/components/InventoryListHeader";
+import NavLink from "@/components/NavLink";
 
 export default function InventoryPage() {
     const navLinks = [
@@ -33,13 +30,13 @@ export default function InventoryPage() {
                         {
                             navLinks.map((link, index) => (
                                 <li key={index}>
-                                    <InventoryNavLink href={link.path} title={link.title}/>
+                                    <NavLink href={link.path} title={link.title}/>
                                 </li>
                             ))
                         }
                     </ul>
 
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded md:p-4 hover:text-black">
+                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
                         Search
                     </div>
 
@@ -47,12 +44,12 @@ export default function InventoryPage() {
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <InventoryListHeader product_id="Product ID" name="Name" price="Price" stock="In Stock"/>
-                        <InventoryList product_id="PD-001" name="SX-01" price="1" stock="10"/>
-                        <InventoryList product_id="PD-002" name="TX-002" price="20" stock="20"/>
-                        <InventoryList product_id="PD-003" name="OT-3" price="3" stock="3"/>
-                        <InventoryList product_id="PD-004" name="MRX-04" price="40" stock="400"/>
-                        <InventoryList product_id="PD-005" name="FIV-5" price="5" stock="5"/>
+                        <ListHeader product_id="Product ID" name="Name" price="Price" stock="In Stock"/>
+                        <List product_id="PD-001" name="SX-01" price="1" stock="10"/>
+                        <List product_id="PD-002" name="TX-002" price="20" stock="20"/>
+                        <List product_id="PD-003" name="OT-3" price="3" stock="3"/>
+                        <List product_id="PD-004" name="MRX-04" price="40" stock="400"/>
+                        <List product_id="PD-005" name="FIV-5" price="5" stock="5"/>
                     </div>
                 </div>
 

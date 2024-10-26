@@ -5,8 +5,8 @@ import PurchaseListHeader from "@/components/PurchaseListHeader"
 export default function PurchasePage() {
     const navLinks = [
         {
-            title: "Vendor",
-            path: "purchase/vendors"
+            title: "Back",
+            path: "..."
         },
         {
             title: "New",
@@ -18,7 +18,7 @@ export default function PurchasePage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center p-10 text-black text-3xl font-black0">
-                    Purchase Order
+                    Vendor
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">

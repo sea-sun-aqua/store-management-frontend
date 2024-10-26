@@ -9,7 +9,7 @@ const MenuPage: React.FC = () => {
             <MenuCard title="Sales Order" link="/menu/sales" />
             <MenuCard title="Inventory" link="/menu/inventory" />
             <MenuCard title="Supplier Order" link="/menu/supplier-order" />
-            <MenuCard title="Purchases" link="/menu/purchases" />
+            <MenuCard title="Purchases" link="/menu/purchase" />
             <MenuCard title="Products" link="/menu/products" />
           </div>
         </div>
