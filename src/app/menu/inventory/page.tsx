@@ -29,17 +29,15 @@ export default function InventoryPage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40 pt-20">
-                    <div className="menu hidden md:block md:w-auto ">
-                        <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8">
-                            {
-                                navLinks.map((link, index) => (
-                                    <li key={index}>
-                                        <InventoryNavLink href={link.path} title={link.title}/>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
+                    <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
+                        {
+                            navLinks.map((link, index) => (
+                                <li key={index}>
+                                    <InventoryNavLink href={link.path} title={link.title}/>
+                                </li>
+                            ))
+                        }
+                    </ul>
 
                     <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded md:p-4 hover:text-black">
                         Search
@@ -48,13 +46,13 @@ export default function InventoryPage() {
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
-                    <div className="ml-5 mr-5 mt-5 p-1 bg-white">
+                    <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
                         <InventoryListHeader product_id="Product ID" name="Name" price="Price" stock="In Stock"/>
-                        <InventoryList product_id="PD-001" name="first" price="100" stock="100"/>
-                        <InventoryList product_id="PD-002" name="second" price="200" stock="200"/>
-                        <InventoryList product_id="PD-003" name="third" price="300" stock="300"/>
-                        <InventoryList product_id="PD-004" name="forth" price="400" stock="400"/>
-                        <InventoryList product_id="PD-005" name="fifth" price="500" stock="500"/>
+                        <InventoryList product_id="PD-001" name="SX-01" price="1" stock="10"/>
+                        <InventoryList product_id="PD-002" name="TX-002" price="20" stock="20"/>
+                        <InventoryList product_id="PD-003" name="OT-3" price="3" stock="3"/>
+                        <InventoryList product_id="PD-004" name="MRX-04" price="40" stock="400"/>
+                        <InventoryList product_id="PD-005" name="FIV-5" price="5" stock="5"/>
                     </div>
                 </div>
 

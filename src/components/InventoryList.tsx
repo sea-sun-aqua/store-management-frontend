@@ -9,7 +9,7 @@ const InventoryList: React.FC<InventoryListProps> = ({ product_id, name, price, 
     return (
         <div className="p-1">
             <div className="grid grid-cols-4 border-solid border-2 border-sky-600">
-                <div className="p-2 bg-black">
+                <div className="p-2 bg-black text-white">
                     <p className="flex justify-center">
                         {product_id}
                     </p>
@@ -21,7 +21,7 @@ const InventoryList: React.FC<InventoryListProps> = ({ product_id, name, price, 
                     </p>
                 </div>
                 
-                <div className="p-2 bg-black">
+                <div className="p-2 bg-black text-white">
                     <p className="flex justify-center">
                         {price}
                     </p>
