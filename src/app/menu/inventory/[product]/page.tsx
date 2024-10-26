@@ -1,12 +1,13 @@
-import InventoryButton from "@/components/InventoryButton";
-import InventoryInput from "@/components/InventoryInput";
+import BackButton from "@/components/BackButton";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
 
-export default function ProductInInventoryPage() {
+export default function InventoryProductPage() {
     return (
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="px-32 pt-10">
-                    <InventoryButton title="Back" path="/menu/inventory"/>
+                    <BackButton title="Back" path="/menu/"/>
                 </div>
 
                 <div className="mx-32 my-16 p-20 pt-10 pb-20 bg-white text-black">
@@ -16,9 +17,9 @@ export default function ProductInInventoryPage() {
 
                     <div className="grid grid-cols-2">
                         <div>
-                            <InventoryInput title="Product" input="name"/>
-                            <InventoryInput title="Price" input="x,xxx.xx"/>
-                            <InventoryInput title="Quantity" input="x,xxx"/>
+                            <Input title="Product" input="name"/>
+                            <Input title="Price" input="x,xxx.xx"/>
+                            <Input title="Quantity" input="x,xxx"/>
                         </div>
 
                         <div className="grid grid-rows-1">
@@ -33,9 +34,7 @@ export default function ProductInInventoryPage() {
                     </div>
 
                     <div className="pt-10 flex justify-center ">
-                        <button className="p-4 bg-sky-400 hover:bg-sky-700 rounded-xl text-white">
-                            Add product
-                        </button>   
+                        <Button title="Add product"/>
                     </div>
                 </div>
                 

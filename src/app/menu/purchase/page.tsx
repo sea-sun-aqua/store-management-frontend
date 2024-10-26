@@ -5,12 +5,16 @@ import PurchaseListHeader from "@/components/PurchaseListHeader"
 export default function PurchasePage() {
     const navLinks = [
         {
+            title: "Back",
+            path: "/menu"
+        },
+        {
             title: "Vendor",
             path: "purchase/vendors"
         },
         {
             title: "New",
-            path: "..."
+            path: "purchase/new_purchase"
         },
     ]
     
@@ -41,11 +45,11 @@ export default function PurchasePage() {
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
                         <PurchaseListHeader col_1="Order ID" col_2="Date" col_3="Vendor" col_4="Sales Person" col_5="Status"/>
-                        <PurchaseList col_1="PD-001" col_2="SX-01" col_3="1" col_4="10" col_5="Completed"/>
-                        <PurchaseList col_1="PD-002" col_2="TX-002" col_3="20" col_4="20" col_5="Transfering"/>
-                        <PurchaseList col_1="PD-003" col_2="OT-3" col_3="3" col_4="3" col_5="Completed"/>
-                        <PurchaseList col_1="PD-004" col_2="MRX-04" col_3="40" col_4="400" col_5="Transfering"/>
-                        <PurchaseList col_1="PD-005" col_2="FIV-5" col_3="5" col_4="5" col_5="Transfering"/>
+                        <PurchaseList col_1="PD-001" col_2="03/02/67" col_3="Aquarat" col_4="Athitrat" col_5="Completed"/>
+                        <PurchaseList col_1="PD-002" col_2="15/02/67" col_3="Athirat" col_4="Aquarat" col_5="Transfering"/>
+                        <PurchaseList col_1="PD-003" col_2="20/02/67" col_3="Aquarat" col_4="Aquarat" col_5="Completed"/>
+                        <PurchaseList col_1="PD-004" col_2="21/02/67" col_3="Patdarin" col_4="Athirat" col_5="Transfering"/>
+                        <PurchaseList col_1="PD-005" col_2="22/02/67" col_3="Patdarin" col_4="Athirat" col_5="Transfering"/>
                     </div>
                 </div>
             </div>

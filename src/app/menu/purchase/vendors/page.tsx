@@ -1,16 +1,16 @@
 import NavLink from "@/components/NavLink"
-import PurchaseList from "@/components/PurchaseList"
-import PurchaseListHeader from "@/components/PurchaseListHeader"
+import VendorList from "@/components/VendorList"
+import VendorListHeader from "@/components/VendorListHeader"
 
-export default function PurchasePage() {
+export default function VendorsPage() {
     const navLinks = [
         {
             title: "Back",
-            path: "..."
+            path: "/menu/purchase"
         },
         {
             title: "New",
-            path: "..."
+            path: "vendors/vendor"
         },
     ]
     
@@ -40,12 +40,12 @@ export default function PurchasePage() {
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <PurchaseListHeader col_1="Order ID" col_2="Date" col_3="Vendor" col_4="Sales Person" col_5="Status"/>
-                        <PurchaseList col_1="PD-001" col_2="SX-01" col_3="1" col_4="10" col_5="Completed"/>
-                        <PurchaseList col_1="PD-002" col_2="TX-002" col_3="20" col_4="20" col_5="Transfering"/>
-                        <PurchaseList col_1="PD-003" col_2="OT-3" col_3="3" col_4="3" col_5="Completed"/>
-                        <PurchaseList col_1="PD-004" col_2="MRX-04" col_3="40" col_4="400" col_5="Transfering"/>
-                        <PurchaseList col_1="PD-005" col_2="FIV-5" col_3="5" col_4="5" col_5="Transfering"/>
+                        <VendorListHeader col_1="Vendor ID" col_2="Vendor" col_3="Sales person"/>
+                        <VendorList col_1="V-001" col_2="Aqr" col_3="Ton1"/>
+                        <VendorList col_1="V-002" col_2="Aqr" col_3="Ton2"/>
+                        <VendorList col_1="V-003" col_2="Pdr" col_3="Ton3"/>
+                        <VendorList col_1="V-004" col_2="Atr" col_3="Ton4"/>
+                        <VendorList col_1="V-005" col_2="Aqr" col_3="Ton5"/>
                     </div>
                 </div>
             </div>
