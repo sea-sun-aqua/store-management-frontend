@@ -31,7 +31,7 @@ export default function CompletePage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center text-black p-10 text-3xl font-black0">
-                    Sale Order
+                    Sales Order
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">
