@@ -3,7 +3,7 @@ import NavLink from "@/components/NavLink";
 import SalesOrderList from "@/components/SalesOrderList";
 import SalesOrderListHeader from "@/components/SalesOrderListHeader";
 
-export default function SalesPage() {
+export default function CompletePage() {
     const navLinks = [
         {
             title: "Back",

@@ -1,6 +1,7 @@
 import NavLink from "@/components/NavLink"
 import AddStockListHeader from "@/components/AddStockListHeader"
 import AddStockList from "@/components/AddStockList"
+import Input from "@/components/Input"
 
 export default function AddStockPage() {
     const navLinks = [
@@ -48,9 +49,7 @@ export default function AddStockPage() {
                         }
                     </ul>
 
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
-                        Search
-                    </div>
+                    <Input input="Search"/>
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32">
@@ -66,7 +65,7 @@ export default function AddStockPage() {
                 </div>
 
                 <div className="flex justify-center p-10"> 
-                    <NavLink title="Save" href="new_purchase/transfer"/>  
+                    <NavLink title="Save" href="..."/>  
                 </div>
             </div>
         </>

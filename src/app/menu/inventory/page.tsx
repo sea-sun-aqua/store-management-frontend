@@ -1,5 +1,6 @@
-import List from "@/components/InventoryList";
-import ListHeader from "@/components/InventoryListHeader";
+import Input from "@/components/Input";
+import InventoryList from "@/components/InventoryList";
+import InventoryListHeader from "@/components/InventoryListHeader";
 import NavLink from "@/components/NavLink";
 
 export default function InventoryPage() {
@@ -21,7 +22,11 @@ export default function InventoryPage() {
     return (
         <>
             <div className="bg-gray-300 min-h-screen">
-                <div className="flex flex-wrap items-center justify-between mx-auto px-40 pt-20">
+                <div className="text-center text-black p-10 text-3xl font-black0">
+                    Inventory
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between mx-auto px-40">
                     <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
                         {
                             navLinks.map((link, index) => (
@@ -32,20 +37,19 @@ export default function InventoryPage() {
                         }
                     </ul>
 
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
-                        Search
-                    </div>
+                    <Input input="Search"/>
 
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <ListHeader product_id="Product ID" name="Name" price="Price" stock="In Stock"/>
-                        <List product_id="PD-001" name="SX-01" price="1" stock="10"/>
-                        <List product_id="PD-002" name="TX-002" price="20" stock="20"/>
-                        <List product_id="PD-003" name="OT-3" price="3" stock="3"/>
-                        <List product_id="PD-004" name="MRX-04" price="40" stock="400"/>
-                        <List product_id="PD-005" name="FIV-5" price="5" stock="5"/>
+                        <InventoryListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock"/>
+                        <InventoryList col_1="PD-001" col_2="ตู้ปลาแก้ว" col_3="2500" col_4="10"/>
+                        <InventoryList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="4"/>
+                        <InventoryList col_1="PD-003" col_2="สายยางใส" col_3="200" col_4="12"/>
+                        <InventoryList col_1="PD-004" col_2="ฟองน้ำ" col_3="85" col_4="11"/>
+                        <InventoryList col_1="PD-005" col_2="น้ำยาบำรุงน้ำ" col_3="112" col_4="3"/>
+                        <InventoryList col_1="PD-006" col_2="อาหารปลา" col_3="250" col_4="3"/>
                     </div>
                 </div>
 

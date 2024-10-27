@@ -1,6 +1,6 @@
 import BackButton from "@/components/BackButton";
 import Button from "@/components/Button";
-import Input from "@/components/Input";
+import Input from "@/components/IndeedInput";
 
 export default function VendorPage() {
     return (

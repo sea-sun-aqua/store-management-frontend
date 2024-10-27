@@ -1,8 +1,8 @@
 import NavLink from "@/components/NavLink"
 import Input from "@/components/Input"
-import Button from "@/components/Button"
 import NewPurchaseList from "@/components/NewPurchaseList"
-import NewPurchaseListHeader from "@/components/NewPurchaseHeader"
+import NewPurchaseListHeader from "@/components/NewPurchaseListHeader"
+import IndeedInput from "@/components/IndeedInput"
 
 export default function NewPurchasePage() {
     const navLinks = [
@@ -12,23 +12,23 @@ export default function NewPurchasePage() {
         },
         {
             title: "<",
-            path: "/menu/purchase"
+            path: "..."
         },
         {
             title: "1",
-            path: "/menu/purchase"
+            path: "..."
         },
         {
             title: "...",
-            path: "/menu/purchase"
+            path: "..."
         },
         {
             title: "5",
-            path: "/menu/purchase"
+            path: "..."
         },
         {
             title: ">",
-            path: "/menu/purchase"
+            path: "..."
         },
     ]
     
@@ -50,21 +50,19 @@ export default function NewPurchasePage() {
                         }
                     </ul>
 
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
-                        Search
-                    </div>
+                    <Input input="Search"/>
                 </div>
 
                 <div className="grid grid-cols-2 pl-40 pt-4">
                     <div className="grid grid-cols-2">
                         <div>
-                            <Input title="Name" input="name"/>
-                            <Input title="Phone number" input="0xx-xxx-xxxx"/>
+                            <IndeedInput title="Name" input="name"/>
+                            <IndeedInput title="Phone number" input="0xx-xxx-xxxx"/>
                         </div>
 
                         <div>
-                            <Input title="Email" input="email"/>
-                            <Input title="Address" input="address"/>
+                            <IndeedInput title="Email" input="email"/>
+                            <IndeedInput title="Address" input="address"/>
                         </div>
                     </div>
                 </div>

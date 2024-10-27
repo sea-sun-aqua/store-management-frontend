@@ -1,5 +1,3 @@
-import { cp } from "fs";
-
 interface PurchaseListProps {
     col_1: string;
     col_2: string;

@@ -1,3 +1,4 @@
+import Input from "@/components/Input"
 import NavLink from "@/components/NavLink"
 import PurchaseList from "@/components/PurchaseList"
 import PurchaseListHeader from "@/components/PurchaseListHeader"
@@ -36,9 +37,7 @@ export default function PurchasePage() {
                         }
                     </ul>
 
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
-                        Search
-                    </div>
+                    <Input input="Search"/>
 
                 </div>
 
