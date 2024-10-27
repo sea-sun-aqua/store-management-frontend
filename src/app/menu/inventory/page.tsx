@@ -6,18 +6,14 @@ export default function InventoryPage() {
     const navLinks = [
         {
             title: "Back",
-            path: "/"
-        },
-        {
-            title: "NONE",
-            path: "..."
-        },
-        {
-            title: "NONE",
-            path: "..."
+            path: "/menu"
         },
         {
             title: "Add",
+            path: "inventory/add_stock"
+        },
+        {
+            title: "New",
             path: "inventory/product"
         }
     ]

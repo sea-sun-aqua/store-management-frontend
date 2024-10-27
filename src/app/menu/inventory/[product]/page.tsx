@@ -7,7 +7,7 @@ export default function InventoryProductPage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="px-32 pt-10">
-                    <BackButton title="Back" path="/menu/"/>
+                    <BackButton title="Back" path="/menu/inventory"/>
                 </div>
 
                 <div className="mx-32 my-16 p-20 pt-10 pb-20 bg-white text-black">
