@@ -1,16 +1,11 @@
 import NavLink from "@/components/NavLink"
 import TransferList from "@/components/TransferList"
-import TransferListHeader from "@/components/TransferListHeader"
 
-export default function TransferPage() {
+export default function CompletePage() {
     const navLinks = [
         {
             title: "Back",
-            path: "/menu/purchase/new_purchase"
-        },
-        {
-            title: "Approve",
-            path: "transfer/complete"
+            path: "/menu/sales/complete/request_order/new_sale"
         },
     ]
     
@@ -22,27 +17,48 @@ export default function TransferPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">
-                    <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
-                        {
-                            navLinks.map((link, index) => (
-                                <li key={index}>
-                                    <NavLink href={link.path} title={link.title}/>
-                                </li>
-                            ))
-                        }
-                    </ul>
+                    <div className="grid grid-cols-3">
+                        <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
+                            {
+                                navLinks.map((link, index) => (
+                                    <li key={index}>
+                                        <NavLink href={link.path} title={link.title}/>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
 
-                    <div className="bg-sky-500 rounded-xl text-white">
-                        <div className="grid grid-cols-3 p-3">
-                            <div className="flex justify-center pl-5 text-black">
+                    <div className="flex justify-center items-center bg-green-400 rounded-full w-40 h-12 text-white ">
+                        Completed
+                    </div>  
+
+                    <div className="rounded-xl text-white">
+                        <div className="grid grid-cols-7 p-3 bg-sky-500 rounded-xl text-white">
+                            <div className="flex justify-center pl-5">
                                 Transferring
                             </div>
 
                             <div className="flex justify-center">
                                 |
                             </div>
+                            <div className="flex justify-center pl-5">
+                                Pack
+                            </div>
 
-                            <div className="flex justify-center pr-5">
+                            <div className="flex justify-center">
+                                |
+                            </div>
+
+                            <div className="flex justify-center pl-5">
+                                Delivery
+                            </div>
+
+                            <div className="flex justify-center">
+                                |
+                            </div>
+
+                            <div className="flex justify-center pr-5 text-black">
                                 Completed
                             </div>
                         </div>
@@ -104,7 +120,7 @@ export default function TransferPage() {
                             </div>
                         </div>
                         
-                        <TransferListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
+                        <TransferList col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
                         <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
                     </div>
                 </div>

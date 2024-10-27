@@ -1,17 +1,15 @@
-interface NewPurchaseListHeaderProps {
+interface TransferListHeaderProps {
     col_1: string;
     col_2: string;
     col_3: string;
     col_4: string;
     col_5: string;
-    col_6: string;
-    col_7: string;
 }
 
-const NewPurchaseListHeader: React.FC<NewPurchaseListHeaderProps> = ({ col_1, col_2, col_3, col_4, col_5, col_6, col_7 }) => {
+const TransferListHeader: React.FC<TransferListHeaderProps> = ({ col_1, col_2, col_3, col_4, col_5 }) => {
     return (
         <div className="p-1">
-            <div className="grid grid-cols-7 border-solid border-2 border-sky-500 text-white">
+            <div className="grid grid-cols-5 border-solid border-2 border-sky-500 text-white">
                 <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
                         {col_1}
@@ -24,7 +22,7 @@ const NewPurchaseListHeader: React.FC<NewPurchaseListHeaderProps> = ({ col_1, co
                     </p>
                 </div>
                  
-                 <div className="p-2 bg-sky-500">
+                <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
                         {col_3}
                     </p>
@@ -41,22 +39,10 @@ const NewPurchaseListHeader: React.FC<NewPurchaseListHeaderProps> = ({ col_1, co
                         {col_5}
                     </p>
                 </div>
-
-                <div className="p-2 bg-sky-600">
-                    <p className="flex justify-center">
-                        {col_6}
-                    </p>
-                </div>
-
-                <div className="p-2 bg-sky-500">
-                    <p className="flex justify-center">
-                        {col_7}
-                    </p>
-                </div>
             </div>
         </div>
     );
 };
 
-export type { NewPurchaseListHeaderProps } ;
-export default NewPurchaseListHeader;
+export type { TransferListHeaderProps } ;
+export default TransferListHeader;

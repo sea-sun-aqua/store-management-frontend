@@ -3,7 +3,7 @@ import NavLink from "@/components/NavLink";
 import SalesOrderRFQList from "@/components/SalesOrderRFQList";
 import SalesOrderRFQListHeader from "@/components/SalesOrderRFQListHeader";
 
-export default function RequestOrderPage() {
+export default function IncompletePage() {
     const navLinks = [
         {
             title: "Back",
@@ -18,7 +18,7 @@ export default function RequestOrderPage() {
             path: "/menu/sales/complete"
         },
         {
-            title: "Request Order",
+            title: "Incomplete",
             path: "/menu/sales/complete/request_order"
         },
         {

@@ -18,7 +18,7 @@ export default function SalesPage() {
             path: "/menu/sales/complete"
         },
         {
-            title: "Request Order",
+            title: "Incomplete",
             path: "/menu/sales/complete/request_order"
         },
         {

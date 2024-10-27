@@ -1,7 +1,5 @@
 import NavLink from "@/components/NavLink"
 import Input from "@/components/Input"
-import NewPurchaseList from "@/components/NewPurchaseList"
-import NewPurchaseListHeader from "@/components/NewPurchaseListHeader"
 import IndeedInput from "@/components/IndeedInput"
 import AddStockListHeader from "@/components/AddStockListHeader"
 import AddStockList from "@/components/AddStockList"
@@ -68,7 +66,7 @@ export default function NewSalesOrderPage() {
                         </div>
 
                         <div>
-                            <IndeedInput title="Method" input="ash"/>
+                            <IndeedInput title="Method" input="Cash"/>
                         </div>
 
                     </div>
@@ -87,7 +85,7 @@ export default function NewSalesOrderPage() {
                 </div>
 
                 <div className="flex justify-center p-10"> 
-                    <NavLink title="Save" href="..."/>  
+                    <NavLink title="Save" href="new_sale/request"/>  
                 </div>
             </div>
         </>

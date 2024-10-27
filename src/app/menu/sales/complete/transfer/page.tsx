@@ -1,12 +1,11 @@
 import NavLink from "@/components/NavLink"
 import TransferList from "@/components/TransferList"
-import TransferListHeader from "@/components/TransferListHeader"
 
 export default function TransferPage() {
     const navLinks = [
         {
             title: "Back",
-            path: "/menu/purchase/new_purchase"
+            path: "/menu/sales/complete"
         },
         {
             title: "Approve",
@@ -18,7 +17,7 @@ export default function TransferPage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center p-10 text-black text-3xl font-black0">
-                    PO-0001
+                    SO-0001
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">
@@ -101,10 +100,16 @@ export default function TransferPage() {
                                 <div>
                                     Bangkok,Thailand
                                 </div>
+                                <div>
+                                    Method :
+                                </div>
+                                <div>
+                                    Cash
+                                </div>
                             </div>
                         </div>
                         
-                        <TransferListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
+                        <TransferList col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
                         <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
                     </div>
                 </div>

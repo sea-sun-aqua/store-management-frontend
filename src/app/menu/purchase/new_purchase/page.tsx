@@ -69,12 +69,12 @@ export default function NewPurchasePage() {
 
                 <div className="grid grid-flow-row grid-col-1 mx-32">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <NewPurchaseListHeader col_1="Product ID" col_2="Name" col_3="In Stock" col_4="Safety Stock" col_5="Request" col_6="Add Stock"/>
-                        <NewPurchaseList col_1="PD-001" col_2="ตู้ปลาแก้ว" col_3="10" col_4="10" col_5="0" col_6="0"/>
-                        <NewPurchaseList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="20" col_4="4" col_5="2" col_6="5"/>
-                        <NewPurchaseList col_1="PD-003" col_2="สายยางใส" col_3="3" col_4="12" col_5="4" col_6="4"/>
-                        <NewPurchaseList col_1="PD-004" col_2="ฟองน้ำ" col_3="4" col_4="11" col_5="0" col_6="2"/>
-                        <NewPurchaseList col_1="PD-005" col_2="อาหารปลา" col_3="5" col_4="3" col_5="1" col_6="1"/>
+                        <NewPurchaseListHeader col_1="Product ID" col_2="Name" col_3="In Stock" col_4="Safety Stock" col_5="Request" col_6="Add Stock" col_7="Total"/>
+                        <NewPurchaseList col_1="PD-001" col_2="ตู้ปลาแก้ว" col_3="10" col_4="10" col_5="0" col_6="0" col_7="10"/>
+                        <NewPurchaseList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="20" col_4="4" col_5="2" col_6="5" col_7="11"/>
+                        <NewPurchaseList col_1="PD-003" col_2="สายยางใส" col_3="3" col_4="12" col_5="4" col_6="4" col_7="20"/>
+                        <NewPurchaseList col_1="PD-004" col_2="ฟองน้ำ" col_3="4" col_4="11" col_5="0" col_6="2" col_7="12"/>
+                        <NewPurchaseList col_1="PD-005" col_2="อาหารปลา" col_3="5" col_4="3" col_5="1" col_6="1" col_7="5"/>
                     </div>
                 </div>
 

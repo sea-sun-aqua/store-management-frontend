@@ -1,17 +1,21 @@
 import NavLink from "@/components/NavLink"
-import TransferList from "@/components/TransferList"
-import TransferListHeader from "@/components/TransferListHeader"
+import RequestOrderList from "@/components/RequestOrderList"
+import RequestOrderListHeader from "@/components/RequestOrderListHeader"
 
-export default function TransferPage() {
+export default function RequestOrderPage() {
     const navLinks = [
         {
             title: "Back",
-            path: "/menu/purchase/new_purchase"
+            path: "/menu/sales/complete/request_order/new_sale"
         },
         {
-            title: "Approve",
-            path: "transfer/complete"
+            title: "Ready to pack",
+            path: "..."
         },
+        {
+            title: "Complete",
+            path: "/menu/sales/complete/request_order/new_sale/request/complete"
+        }
     ]
     
     return (
@@ -33,9 +37,24 @@ export default function TransferPage() {
                     </ul>
 
                     <div className="bg-sky-500 rounded-xl text-white">
-                        <div className="grid grid-cols-3 p-3">
+                        <div className="grid grid-cols-7 p-3">
                             <div className="flex justify-center pl-5 text-black">
                                 Transferring
+                            </div>
+
+                            <div className="flex justify-center">
+                                |
+                            </div>
+
+                            <div className="flex justify-center pl-5">
+                                Pack
+                            </div>
+
+                            <div className="flex justify-center">
+                                |
+                            </div>
+                            <div className="flex justify-center pl-5">
+                                Delivery
                             </div>
 
                             <div className="flex justify-center">
@@ -88,10 +107,10 @@ export default function TransferPage() {
                                     Athirat@gmail.com
                                 </div>
                                 <div>
-                                    Total :
+                                    Method :
                                 </div>
                                 <div>
-                                    800 Baht
+                                    Cash
                                 </div>
 
 
@@ -104,8 +123,8 @@ export default function TransferPage() {
                             </div>
                         </div>
                         
-                        <TransferListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
-                        <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
+                        <RequestOrderListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount" col_5="Status"/>
+                        <RequestOrderList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5" col_5="Sending"/>
                     </div>
                 </div>
             </div>
