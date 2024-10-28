@@ -1,65 +1,81 @@
 'use client'
-import { useState } from 'react';
+
+import React, { useState } from 'react';
+import { useUser } from '../../../context/UserContext';
+import Link from 'next/link';
 import axios from 'axios';
 
-interface User {
-  username: string;
-  password: string;
-}
 
-const LoginForm: React.FC = () => {
-  const [formData, setFormData] = useState<User>({
-    username: '',
-    password: '',
-  });
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+const Page: React.FC = () => {
+  const {setUser} = useUser()
+  const [email, setemail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-
+  const handleLogin = async () => {
     try {
-      const response = await axios.post("https://4a53-1-47-158-252.ngrok-free.app/login", formData)
-      console.log(response.data)
+        const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        };
+        const response = await axios.post('http://localhost:9000/login', JSON.stringify({
+            staff_email: email,
+            staff_password: password
+        }), config)
+
+        // ตรวจสอบว่าข้อมูลที่ต้องการอยู่ใน response อย่างถูกต้อง
+        const userData: User = {
+            staff_id: response.data.staff_id,
+            staff_name: response.data.staff_name,
+            staff_email: response.data.staff_email,
+        };
+
+        // เก็บข้อมูลผู้ใช้ใน context
+        setUser(userData); 
+        // เก็บข้อมูลใน Local Storage
+        localStorage.setItem('user', JSON.stringify(userData));
+        alert('Login Successful!');
+        
 
     } catch (error) {
-      console.error('Error:', error);
-      setErrorMessage('An error occurred');
+      console.error(error);
+      alert('Login Failed.');
     }
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">Username:</label>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-md">
+        <h2 className="text-2xl font-bold text-center">Login</h2>
         <input
           type="text"
-          id="username"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
+          placeholder="email"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
+          className="w-full p-3 border rounded"
         />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
         <input
           type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-3 border rounded"
         />
+        <button
+          onClick={handleLogin}
+          className="w-full p-3 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
+        >
+          Login
+        </button>
+        
+        <Link href="./sign-in">
+        <button className="w-full p-3 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600">
+        Sign In
+        </button>
+        </Link>
       </div>
-      <button type="submit">Login</button>
-      {errorMessage && <p>{errorMessage}</p>}
-    </form>
+    </div>
   );
 };
 
-export default LoginForm;
+export default Page;

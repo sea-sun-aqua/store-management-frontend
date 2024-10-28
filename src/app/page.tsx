@@ -1,4 +1,3 @@
-import Login from './(auth)/login/page';
-// import MenuPage from './menu/page';
+import Page from '@/app/(auth)/login/page';
 
-export default Login;
+export default Page;
