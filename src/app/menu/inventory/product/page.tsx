@@ -23,13 +23,7 @@ export default function InventoryProductPage() {
                         </div>
 
                         <div className="grid grid-rows-1">
-                            <div className="bg-sky-100 mx-10 mb-5 text-center content-center text-3xl">
-                                +
-                            </div>
-
-                            <div className="text-center">
-                                Add photo
-                            </div>
+                            
                         </div>
                     </div>
 
