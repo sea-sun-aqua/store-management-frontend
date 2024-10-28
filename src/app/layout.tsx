@@ -1,5 +1,7 @@
-import TopNavbar from "@/components/TopNavbar"
 import '@/globals.css'
+
+import type { AppProps } from 'next/app'
+import { UserProvider } from '../context/UserContext'
 
 export const metadata = {
   title: 'Next.js',
@@ -13,13 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <UserProvider>
       <body>
-        <TopNavbar currentPage="Menu" />
         {children}
-        <footer className="text-center">
-          bye
-        </footer>
       </body>
+      </UserProvider>
     </html>
   )
 }
