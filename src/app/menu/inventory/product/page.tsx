@@ -19,7 +19,7 @@ export default function InventoryProductPage() {
                         <div>
                             <Input title="Product" input="name"/>
                             <Input title="Price" input="x,xxx.xx"/>
-                            <Input title="Quantity" input="x,xxx"/>
+                            <Input title="Quantity of safety stock" input="x,xxx"/>
                         </div>
 
                         <div className="grid grid-rows-1">

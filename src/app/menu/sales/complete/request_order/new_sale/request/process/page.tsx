@@ -1,11 +1,21 @@
+import Button from "@/components/Button"
 import NavLink from "@/components/NavLink"
-import TransferList from "@/components/TransferList"
+import RequestOrderList from "@/components/RequestOrderList"
+import RequestOrderListHeader from "@/components/RequestOrderListHeader"
 
-export default function CompletePage() {
+export default function ProcessPage() {
     const navLinks = [
         {
             title: "Back",
             path: "/menu/sales/complete/request_order/new_sale"
+        },
+        {
+            title: "Ready to pack",
+            path: "..."
+        },
+        {
+            title: "Complete",
+            path: "/menu/sales/complete/request_order/new_sale/request/process/complete"
         },
     ]
     
@@ -13,35 +23,34 @@ export default function CompletePage() {
         <>
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center p-10 text-black text-3xl font-black0">
-                    PO-0001
+                    SO-0001
+                </div>
+
+                <div className="flex justify-end pr-40 pb-5">
+                    <Button title="Print Receipt"/>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">
-                    <div className="grid grid-cols-3">
-                        <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
-                            {
-                                navLinks.map((link, index) => (
-                                    <li key={index}>
-                                        <NavLink href={link.path} title={link.title}/>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
+                    <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
+                        {
+                            navLinks.map((link, index) => (
+                                <li key={index}>
+                                    <NavLink href={link.path} title={link.title}/>
+                                </li>
+                            ))
+                        }
+                    </ul>
 
-                    <div className="flex justify-center items-center bg-green-400 rounded-full w-40 h-12 text-white ">
-                        Completed
-                    </div>  
-
-                    <div className="rounded-xl text-white">
-                        <div className="grid grid-cols-7 p-3 bg-sky-500 rounded-xl text-white">
-                            <div className="flex justify-center pl-5">
+                    <div className="bg-sky-500 rounded-xl text-white">
+                        <div className="grid grid-cols-7 p-3">
+                            <div className="flex justify-center pl-5 text-black">
                                 Transferring
                             </div>
 
                             <div className="flex justify-center">
                                 |
                             </div>
+
                             <div className="flex justify-center pl-5">
                                 Pack
                             </div>
@@ -49,7 +58,6 @@ export default function CompletePage() {
                             <div className="flex justify-center">
                                 |
                             </div>
-
                             <div className="flex justify-center pl-5">
                                 Delivery
                             </div>
@@ -58,7 +66,7 @@ export default function CompletePage() {
                                 |
                             </div>
 
-                            <div className="flex justify-center pr-5 text-black">
+                            <div className="flex justify-center pr-5">
                                 Completed
                             </div>
                         </div>
@@ -104,10 +112,10 @@ export default function CompletePage() {
                                     Athirat@gmail.com
                                 </div>
                                 <div>
-                                    Total :
+                                    Method :
                                 </div>
                                 <div>
-                                    800 Baht
+                                    Cash
                                 </div>
 
 
@@ -120,8 +128,8 @@ export default function CompletePage() {
                             </div>
                         </div>
                         
-                        <TransferList col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
-                        <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
+                        <RequestOrderListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount" col_5="Status"/>
+                        <RequestOrderList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5" col_5="Sending"/>
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@ export default function NewSalesOrderPage() {
 
                 <div className="grid grid-flow-row grid-col-1 mx-32">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <AddStockListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock" col_5="Add Stock"/>
+                        <AddStockListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock" col_5="Amount"/>
                         <AddStockList col_1="PD-001" col_2="ตู้ปลาแก้ว" col_3="2500" col_4="10" col_5="0"/>
                         <AddStockList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="4" col_5="2"/>
                         <AddStockList col_1="PD-003" col_2="สายยางใส" col_3="200" col_4="12" col_5="4"/>

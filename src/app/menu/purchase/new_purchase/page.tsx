@@ -3,6 +3,7 @@ import Input from "@/components/Input"
 import NewPurchaseList from "@/components/NewPurchaseList"
 import NewPurchaseListHeader from "@/components/NewPurchaseListHeader"
 import IndeedInput from "@/components/IndeedInput"
+import Button from "@/components/Button"
 
 export default function NewPurchasePage() {
     const navLinks = [
@@ -37,6 +38,10 @@ export default function NewPurchasePage() {
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center p-10 text-black text-3xl font-black0">
                     Purchase Order
+                </div>
+
+                <div className="flex justify-end pr-40 pb-5">
+                    <Button title="Print Invoice"/>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">

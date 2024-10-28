@@ -1,3 +1,4 @@
+import Button from "@/components/Button"
 import NavLink from "@/components/NavLink"
 import TransferList from "@/components/TransferList"
 import TransferListHeader from "@/components/TransferListHeader"
@@ -9,7 +10,7 @@ export default function TransferPage() {
             path: "/menu/purchase/new_purchase"
         },
         {
-            title: "Approve",
+            title: "Complete",
             path: "transfer/complete"
         },
     ]
@@ -19,6 +20,10 @@ export default function TransferPage() {
             <div className="bg-gray-300 min-h-screen">
                 <div className="text-center p-10 text-black text-3xl font-black0">
                     PO-0001
+                </div>
+
+                <div className="flex justify-end pr-40 pb-5">
+                    <Button title="Print Invoice"/>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">

@@ -10,10 +10,6 @@ export default function InventoryPage() {
             path: "/menu"
         },
         {
-            title: "Add",
-            path: "inventory/add_stock"
-        },
-        {
             title: "New",
             path: "inventory/product"
         }
