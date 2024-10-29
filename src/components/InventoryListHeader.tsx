@@ -7,8 +7,8 @@ interface InventoryListProps {
 
 const InventoryList: React.FC<InventoryListProps> = ({ col_1, col_2, col_3, col_4 }) => {
     return (
-        <div className="p-1">
-            <div className="grid grid-cols-4 border-solid border-2 border-sky-500 text-white">
+        <div>
+            <div className="grid grid-cols-4 border-solid border-2 border-sky-500 text-white h-14 text-xl font-bold  ">
                 <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
                         {col_1}

@@ -1,55 +1,35 @@
-interface SalesOrderListProps {
-    col_1: string;
-    col_2: string;
-    col_3: string;
-    col_4: string;
-    col_5: string;
-    col_6: string;
-}
-
-const SalesOrderList: React.FC<SalesOrderListProps> = ({ col_1, col_2, col_3, col_4, col_5, col_6 }) => {
-    return (
-        <div className="p-1">
-            <div className="grid grid-cols-6 border-solid border-2 border-sky-600">
-                <div className="p-2 bg-black text-white">
-                    <p className="flex justify-center">
-                        {col_1}
-                    </p>
-                </div>
-                
-                <div className="p-2 text-black">
-                    <p className="flex justify-center">
-                        {col_2}
-                    </p>
-                </div>
-                
-                <div className="p-2 bg-black text-white">
-                    <p className="flex justify-center">
-                        {col_3}
-                    </p>
-                </div>
-
-                <div className="p-2 text-black">
-                    <p className="flex justify-center">
-                        {col_4}
-                    </p>
-                </div>
-
-                <div className="p-2 bg-black text-white">
-                    <p className="flex justify-center">
-                        {col_5}
-                    </p>
-                </div>
-
-                <div className="p-2 text-black">
-                    <p className="flex justify-center">
-                        {col_6}
-                    </p>
-                </div>
-            </div>
+const SalesOrderRFQList: React.FC<{ order: Order}> = ({order}) => {
+return (
+    <div className="p-1">
+      <div className="grid grid-cols-6 border-solid border-2 border-sky-600">
+        <div className="p-2 bg-black text-white">
+          <p className="flex justify-center">{order.order_id}</p>
         </div>
-    );
+        
+        <div className="p-2 text-black">
+          <p className="flex justify-center">
+            {order.order_created_date.toString()}
+          </p>
+        </div>
+        
+        <div className="p-2 bg-black text-white">
+          <p className="flex justify-center">{order.customer_name}</p>
+        </div>
+
+        <div className="p-2 text-black">
+          <p className="flex justify-center">{order.staff_id}</p>
+        </div>
+
+        <div className="p-2 bg-black text-white">
+          <p className="flex justify-center">{order.phone_number}</p>
+        </div>
+
+        <div className="p-2 text-black">
+          <p className="flex justify-center">{order.order_status}</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export type { SalesOrderListProps } ;
-export default SalesOrderList;
+export default SalesOrderRFQList;

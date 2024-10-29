@@ -51,10 +51,6 @@ export default function InventoryProductDetailPage({ params }: {
                             </div>
     
                         </div>
-    
-                        <div className="pt-10 flex justify-center ">
-                            <Button title="Add product"/>
-                        </div>
                     </div>
                     
                 </div>
