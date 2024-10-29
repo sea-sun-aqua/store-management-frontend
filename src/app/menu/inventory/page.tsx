@@ -14,6 +14,8 @@ export default function InventoryPage() {
             path: "inventory/product"
         }
     ]
+
+    
     
     return (
         <>

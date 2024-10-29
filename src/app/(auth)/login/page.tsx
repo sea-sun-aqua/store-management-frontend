@@ -1,15 +1,15 @@
 'use client'
 
 import React, { useState } from 'react';
-import { useUser } from '../../../context/UserContext';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
 
 
 const Page: React.FC = () => {
-  const {setUser} = useUser()
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleLogin = async () => {
     try {
@@ -30,11 +30,10 @@ const Page: React.FC = () => {
             staff_email: response.data.staff_email,
         };
 
-        // เก็บข้อมูลผู้ใช้ใน context
-        setUser(userData); 
         // เก็บข้อมูลใน Local Storage
         localStorage.setItem('user', JSON.stringify(userData));
-        alert('Login Successful!');
+        router.push('/menu')
+
         
 
     } catch (error) {
@@ -68,7 +67,7 @@ const Page: React.FC = () => {
           Login
         </button>
         
-        <Link href="./sign-in">
+        <Link href="./sign-up">
         <button className="w-full p-3 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600">
         Sign In
         </button>
