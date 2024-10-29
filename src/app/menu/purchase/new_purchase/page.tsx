@@ -40,10 +40,6 @@ export default function NewPurchasePage() {
                     Purchase Order
                 </div>
 
-                <div className="flex justify-end pr-40 pb-5">
-                    <Button title="Print Invoice"/>
-                </div>
-
                 <div className="flex flex-wrap items-center justify-between mx-auto px-40">
                     <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
                         {

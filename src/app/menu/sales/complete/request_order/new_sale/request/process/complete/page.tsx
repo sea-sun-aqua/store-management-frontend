@@ -1,6 +1,7 @@
 import Button from "@/components/Button"
 import NavLink from "@/components/NavLink"
 import TransferList from "@/components/TransferList"
+import TransferListHeader from "@/components/TransferListHeader"
 
 export default function CompletePage() {
     const navLinks = [
@@ -125,7 +126,7 @@ export default function CompletePage() {
                             </div>
                         </div>
                         
-                        <TransferList col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
+                        <TransferListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
                         <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
                     </div>
                 </div>
