@@ -2,6 +2,8 @@ import Button from "@/components/Button"
 import NavLink from "@/components/NavLink"
 import RequestOrderList from "@/components/RequestOrderList"
 import RequestOrderListHeader from "@/components/RequestOrderListHeader"
+import TransferList from "@/components/TransferList"
+import TransferListHeader from "@/components/TransferListHeader"
 
 export default function ProcessPage() {
     const navLinks = [
@@ -10,7 +12,7 @@ export default function ProcessPage() {
             path: "/menu/sales/complete/request_order/new_sale"
         },
         {
-            title: "Ready to pack",
+            title: "Ready to delivery",
             path: "..."
         },
         {
@@ -128,8 +130,8 @@ export default function ProcessPage() {
                             </div>
                         </div>
                         
-                        <RequestOrderListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount" col_5="Status"/>
-                        <RequestOrderList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5" col_5="Sending"/>
+                        <TransferListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
+                        <TransferList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
                     </div>
                 </div>
             </div>
