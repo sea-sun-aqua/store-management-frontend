@@ -6,30 +6,33 @@ import NavLink from "@/components/NavLink";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
+
+
 export default function InventoryPage() {
     //fetch api data
-    const [products, setProducts] = useState<Product[]>([]);
-    const [staffs, setStaffs] = useState<User[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+    // const [products, setProducts] = useState<Product[]>([]);
+    // const [staffs, setStaffs] = useState<User[]>([]);
+    // const [loading, setLoading] = useState<boolean>(true);
 
-    useEffect(() => {
-      const fetchProducts = async () => {
-            try {
-                const response = await axios.get("https://fca7-158-108-228-146.ngrok-free.app/product");
-                const response_staff = await axios.get("http://localhost:9000/");
-                setProducts(response.data);
-            }catch (error) {
-                console.error('Error fetching products', error);
-            }finally {
-                setLoading(false);
-            }
-      }
-      fetchProducts();
-    }, []);
+    // useEffect(() => {
+    //   const fetchProducts = async () => {
+    //         try {
+    //             const response = await axios.get("http://localhost:9000/product");
+    //             const response_staff = await axios.get("http://localhost:9000/");
+    //             setProducts(response.data);
+    //         }catch (error) {
+    //             console.error('Error fetching products', error);
+    //         }finally {
+    //             setLoading(false);
+    //         }
+    //   }
+    //   fetchProducts();
+    // }, []);
+    // products
 
-    if (loading) {
-        return <p>Loading</p>
-    }
+    // if (loading) {
+    //     return <p>Loading</p>
+    // }
     
 
     const navLinks = [
@@ -42,6 +45,8 @@ export default function InventoryPage() {
             path: "inventory/new-product"
         }
     ]
+
+   
 
     
     return (

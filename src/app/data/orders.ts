@@ -8,4 +8,5 @@ interface Order {
     order_status:string,
     order_created_date: Date,
     staff_id:string
+    staff_name:string
 }
