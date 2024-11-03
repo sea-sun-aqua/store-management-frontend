@@ -70,3 +70,5 @@ const products:Product[] = [
       "safety_stock_amount": 10
     }  
 ]
+
+export default products;

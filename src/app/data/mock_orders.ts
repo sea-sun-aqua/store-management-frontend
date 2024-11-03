@@ -8,26 +8,60 @@ const sampleOrders: Order[] = [
         order_payment_method: 'Credit Card',
         order_status: 'Pending',
         order_created_date: new Date('2023-11-23'),
-        staff_id: 'EMP001',
-        staff_name: 'Alice Smith',
-        order_product: ["P001",
-                        "Apple iPhone 15 Pro Max",
-                        "1299",
-                        "100",
-                       ]
+        staff: {
+            staff_id: "U001",
+            staff_name: "Fluke",
+            staff_email: "moore@example.com",
+        },
+        products:     [
+        {
+            "product_id": "P009",
+            "product_name": "Razer Blade 15 Laptop",
+            "product_price": 1999,
+            "product_amount": 20,
+            "safety_stock_amount": 2
+          },
+          {
+            "product_id": "P010",
+            "product_name": "Apple Watch Series 9",
+            "product_price": 399,
+            "product_amount": 100,
+            "safety_stock_amount": 10
+          }  
+      ]
     },
-    // {
-    //     order_id: 'ORD002',
-    //     customer_name: 'Jane Smith',
-    //     customer_email: 'jane.smith@company.com',
-    //     phone_number: '+44 20 7946 0123',
-    //     customer_address: '456 Baker St, London, UK',
-    //     order_payment_method: 'Debit Card',
-    //     order_status: 'Processing',
-    //     order_created_date: new Date('2023-11-21'),
-    //     staff_id: 'EMP002',
-    //     staff_name: 'Bob Johnson'
-    //   },
+    {
+        order_id: 'ORD002',
+        customer_name: 'John Doe',
+        customer_email: 'johndoe@example.com',
+        phone_number: '0812345678',
+        customer_address: '123 Main St, Anytown, CA',
+        order_payment_method: 'Credit Card',
+        order_status: 'Pending',
+        order_created_date: new Date('2023-11-23'),
+        staff: {
+            staff_id: "U001",
+            staff_name: "Fluke",
+            staff_email: "moore@example.com",
+        },
+        products:     [
+        {
+            "product_id": "P009",
+            "product_name": "Razer Blade 15 Laptop",
+            "product_price": 1999,
+            "product_amount": 20,
+            "safety_stock_amount": 2
+          },
+          {
+            "product_id": "P010",
+            "product_name": "Apple Watch Series 9",
+            "product_price": 399,
+            "product_amount": 100,
+            "safety_stock_amount": 10
+          }  
+      ]
+    },
+
     //   {
     //     order_id: 'ORD003',
     //     customer_name: 'David Lee',
@@ -89,3 +123,5 @@ const sampleOrders: Order[] = [
     //     staff_name: 'Bob Johnson'
     //   },
 ];
+
+export default sampleOrders;

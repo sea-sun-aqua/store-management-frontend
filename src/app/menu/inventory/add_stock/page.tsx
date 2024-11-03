@@ -1,69 +1,92 @@
-import NavLink from "@/components/NavLink"
-import AddStockListHeader from "@/components/AddStockListHeader"
-import AddStockList from "@/components/AddStockList"
-export default function AddStockPage() {
-    const navLinks = [
-        {
-            title: "Back",
-            path: "/menu/purchase"
-        },
-        {
-            title: "<",
-            path: "/menu/purchase"
-        },
-        {
-            title: "1",
-            path: "/menu/purchase"
-        },
-        {
-            title: "...",
-            path: "/menu/purchase"
-        },
-        {
-            title: "5",
-            path: "/menu/purchase"
-        },
-        {
-            title: ">",
-            path: "/menu/purchase"
-        },
-    ]
-    
-    return (
-        <>
-            <div className="bg-gray-300 min-h-screen">
-                <div className="text-center p-10 text-black text-3xl font-black0">
-                    Add Stock
-                </div>
-                <div className="flex flex-wrap items-center justify-between mx-auto px-40">
-                    <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
-                        {
-                            navLinks.map((link, index) => (
-                                <li key={index}>
-                                    <NavLink href={link.path} title={link.title}/>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                    <div className="bg-white w-96 text-[#ADB7BE] sm:text-xl rounded-xl md:p-4 hover:text-black">
-                        Search
-                    </div>
-                </div>
-                <div className="grid grid-flow-row grid-col-1 mx-32">
-                    <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        <AddStockListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock" col_5="Add Stock"/>
-                        <AddStockList product_id="PD-001" product_name="Glass_container" product_price={2500} safety_stock_amount={10} product_amount="0"/>
-                        {/* <AddStockList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="4" col_5="2"/>
-                        <AddStockList col_1="PD-003" col_2="สายยางใส" col_3="200" col_4="12" col_5="4"/>
-                        <AddStockList col_1="PD-004" col_2="ฟองน้ำ" col_3="85" col_4="11" col_5="0"/>
-                        <AddStockList col_1="PD-005" col_2="น้ำยาบำรุงน้ำ" col_3="112" col_4="3" col_5="1"/>
-                        <AddStockList col_1="PD-006" col_2="อาหารปลา" col_3="250" col_4="3" col_5="1"/> */}
-                    </div>
-                </div>
-                <div className="flex justify-center p-10"> 
-                    <NavLink title="Save" href=""/>  
-                </div>
-            </div>
-        </>
-    )
-}
+'use client'
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import products from '@/app/data/mock_products'
+import Link from 'next/link'
+import axios from 'axios'
+
+
+const AddProduct = () => {
+  
+  const [amounts, setAmounts] = useState<{ [key: string]: number }>({});
+  const router = useRouter();
+
+  const handleAmountChange = (id: string, amount: number) => {
+    setAmounts((prevAmounts) => ({
+      ...prevAmounts,
+      [id]: amount,
+    }));
+  };
+
+
+  const handleSave = () => {
+    Object.entries(amounts).forEach(async ([id, amount]) => {
+        try{
+            const config = {
+                headers: {
+                  'Content-Type': 'application/json'
+            }}
+            const response = await axios.post(`http://localhost:9000/product/${id}`, JSON.stringify({
+                product_amount: amount,
+            }), config)
+
+            console.log(response.data);
+        }catch(err){
+            console.error(err);
+        }
+    })
+    // หลังจากบันทึกแล้ว redirect กลับไปที่หน้า Product List
+    router.push('./');
+  }
+
+
+
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Add Product Quantities</h1>
+      <table className="min-w-full bg-white border border-gray-300">
+        <thead>
+          <tr>
+            <th className="py-2 px-4 border-b">Product ID</th>
+            <th className="py-2 px-4 border-b">Product Name</th>
+            <th className="py-2 px-4 border-b">Price</th>
+            <th className="py-2 px-4 border-b">Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product: Product) => (
+            <tr key={product.product_id}>
+              <td className="py-2 px-4 border-b">{product.product_id}</td>
+              <td className="py-2 px-4 border-b">{product.product_name}</td>
+              <td className="py-2 px-4 border-b">${product.product_price.toFixed(2)}</td>
+              <td className="py-2 px-4 border-b">
+                <input
+                  type="number"
+                  value={amounts[product.product_id] || ''}
+                  onChange={(e) =>
+                    handleAmountChange(product.product_id, parseInt(e.target.value, 10) || 0)
+                  }
+                  className="border border-gray-400 p-1 w-16"
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <Link href="./">
+      <button className="mt-4 mr-5 px-4 py-2 bg-blue-500 text-white rounded">
+        Back
+      </button>
+      </Link>
+      <button
+        onClick={handleSave}
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        Save
+      </button>
+    </div>
+  );
+};
+
+export default AddProduct;

@@ -11,7 +11,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="th">
+      <head>
+          <meta charSet="UTF-8" />
+        </head>
       <body>
         {children}
       </body>
