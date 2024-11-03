@@ -15,7 +15,7 @@ export default function SalesPage() {
     useEffect(() => {
       const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:9000/order");
+                const response = await axios.get("https://fca7-158-108-228-146.ngrok-free.app/order");
                 setOrders(response.data);
             }catch (error) {
                 console.error('Error fetching products', error);

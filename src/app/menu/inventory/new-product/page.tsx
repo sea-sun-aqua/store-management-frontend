@@ -33,7 +33,7 @@ export default function InventoryProductPage() {
 
     try {
       // ส่งข้อมูลไปยัง API
-      await axios.post('http://localhost:9000/product', newProduct);
+      await axios.post('https://fca7-158-108-228-146.ngrok-free.app/product', newProduct);
       alert('เพิ่มสินค้าเรียบร้อยแล้ว');
 
       // เพิ่มข้อมูลสินค้าใหม่ใน state และรีเซ็ตฟิลด์ฟอร์ม

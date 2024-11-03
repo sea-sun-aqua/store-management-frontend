@@ -15,7 +15,7 @@ export default function InventoryPage() {
     useEffect(() => {
       const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:9000/product");
+                const response = await axios.get("https://fca7-158-108-228-146.ngrok-free.app/product");
                 const response_staff = await axios.get("http://localhost:9000/");
                 setProducts(response.data);
             }catch (error) {
