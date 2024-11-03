@@ -1,4 +1,5 @@
 const SalesOrderRFQList: React.FC<{ order: Order}> = ({order}) => {
+
 return (
     <div className="p-1">
       <div className="grid grid-cols-6 border-solid border-2 border-sky-600">
@@ -17,7 +18,7 @@ return (
         </div>
 
         <div className="p-2 text-black">
-          <p className="flex justify-center">{order.staff_id}</p>
+          <p className="flex justify-center">{order.staff_name}</p>
         </div>
 
         <div className="p-2 bg-black text-white">
