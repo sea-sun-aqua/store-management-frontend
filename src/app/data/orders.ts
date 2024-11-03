@@ -9,4 +9,5 @@ interface Order {
     order_created_date: Date,
     staff_id:string
     staff_name:string
+    order_product:string[],
 }
