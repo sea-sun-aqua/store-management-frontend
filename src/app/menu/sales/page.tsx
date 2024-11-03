@@ -36,18 +36,6 @@ export default function SalesPage() {
             path: "/menu"
         },
         {
-            title: "All",
-            path: "/menu/sales"
-        },
-        {
-            title: "Complete",
-            path: "/menu/sales/complete"
-        },
-        {
-            title: "Incomplete",
-            path: "/menu/sales/complete/request_order"
-        },
-        {
             title: "New",
             path: "/menu/sales/complete/request_order/new_sale"
         }
@@ -81,8 +69,8 @@ export default function SalesPage() {
                         {orders.map((order: Order, index) => (
                            <SalesOrderRFQList key={index} order={order} />
                         ))}
-                        {/* <SalesOrderRFQList col_1="SO-001" col_2="03/02/67" col_3="Aquarat" col_4="Athitrat" col_5="2,000" col_6="Transferring"/>
-                        <SalesOrderRFQList col_1="SO-002" col_2="15/02/67" col_3="Athirat" col_4="Aquarat" col_5="8,000" col_6="Packing"/>
+                        {/* <SalesOrderRFQList col_1="SO-001" col_2="03/02/67" col_3="Aquarat" col_4="Athitrat" col_5="2,000" col_6="Transferring"/> */}
+                        {/* <SalesOrderRFQList col_1="SO-002" col_2="15/02/67" col_3="Athirat" col_4="Aquarat" col_5="8,000" col_6="Packing"/>
                         <SalesOrderRFQList col_1="SO-003" col_2="20/02/67" col_3="Aquarat" col_4="Aquarat" col_5="5,000" col_6="Delivery"/>
                         <SalesOrderRFQList col_1="SO-004" col_2="21/02/67" col_3="Patdarin" col_4="Athirat" col_5="1,474" col_6="Delivery"/> */}
                     </div>

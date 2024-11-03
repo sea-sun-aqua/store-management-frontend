@@ -22,7 +22,7 @@ export default function CompletePage() {
                     <Button title="Print Receipt"/>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between mx-auto px-40">
+                <div className="flex items-center justify-between mx-auto px-40">
                     <div className="grid grid-cols">
                         <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8"> {/*unorder list*/}
                             {
@@ -39,7 +39,8 @@ export default function CompletePage() {
                         Completed
                     </div>  
 
-                    <div className="rounded-xl text-white">
+
+                    {/* <div className="rounded-xl text-white">
                         <div className="grid grid-cols-7 p-3 bg-sky-500 rounded-xl text-white">
                             <div className="flex justify-center pl-5">
                                 Transferring
@@ -68,7 +69,7 @@ export default function CompletePage() {
                                 Completed
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">

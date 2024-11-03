@@ -3,13 +3,13 @@ interface TransferListHeaderProps {
     col_2: string;
     col_3: string;
     col_4: string;
-    col_5: string;
+    // col_5: string;
 }
 
-const TransferListHeader: React.FC<TransferListHeaderProps> = ({ col_1, col_2, col_3, col_4, col_5 }) => {
+const TransferListHeader: React.FC<TransferListHeaderProps> = ({ col_1, col_2, col_3, col_4 }) => {
     return (
         <div className="p-1">
-            <div className="grid grid-cols-5 border-solid border-2 border-sky-500 text-white">
+            <div className="grid grid-cols-4 border-solid border-2 border-sky-500 text-white">
                 <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
                         {col_1}
@@ -34,11 +34,11 @@ const TransferListHeader: React.FC<TransferListHeaderProps> = ({ col_1, col_2, c
                     </p>
                 </div>
 
-                <div className="p-2 bg-sky-500">
+                {/* <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
                         {col_5}
                     </p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

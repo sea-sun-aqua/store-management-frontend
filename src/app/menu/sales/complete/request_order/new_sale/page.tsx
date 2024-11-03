@@ -75,12 +75,12 @@ export default function NewSalesOrderPage() {
                 <div className="grid grid-flow-row grid-col-1 mx-32">
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
                         <AddStockListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock" col_5="Amount"/>
-                        <AddStockList col_1="PD-001" col_2="ตู้ปลาแก้ว" col_3="2500" col_4="10" col_5="0"/>
-                        <AddStockList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="4" col_5="2"/>
-                        <AddStockList col_1="PD-003" col_2="สายยางใส" col_3="200" col_4="12" col_5="4"/>
-                        <AddStockList col_1="PD-004" col_2="ฟองน้ำ" col_3="85" col_4="11" col_5="0"/>
-                        <AddStockList col_1="PD-005" col_2="น้ำยาบำรุงน้ำ" col_3="112" col_4="3" col_5="1"/>
-                        <AddStockList col_1="PD-006" col_2="อาหารปลา" col_3="250" col_4="3" col_5="1"/>
+                        <AddStockList product_id="PD-001" product_name="ตู้ปลาแก้ว" product_price={2500} safety_stock_amount={10} product_amount="0"/>
+                        {/* <AddStockList product_id="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="4" col_5="2"/>
+                        <AddStockList product_id="PD-003" col_2="สายยางใส" col_3="200" col_4="12" col_5="4"/>
+                        <AddStockList product_id="PD-004" col_2="ฟองน้ำ" col_3="85" col_4="11" col_5="0"/>
+                        <AddStockList product_id="PD-005" col_2="น้ำยาบำรุงน้ำ" col_3="112" col_4="3" col_5="1"/>
+                        <AddStockList product_id="PD-006" col_2="อาหารปลา" col_3="250" col_4="3" col_5="1"/> */}
                     </div>
                 </div>
 

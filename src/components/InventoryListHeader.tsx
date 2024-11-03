@@ -1,35 +1,35 @@
 interface InventoryListProps {
-    col_1: string;
-    col_2: string;
-    col_3: string;
-    col_4: string;
+    product_id: string;
+    product_name: string;
+    product_price: string;
+    product_amount: string;
 }
 
-const InventoryList: React.FC<InventoryListProps> = ({ col_1, col_2, col_3, col_4 }) => {
+const InventoryList: React.FC<InventoryListProps> = ({ product_id, product_name, product_price, product_amount }) => {
     return (
         <div>
             <div className="grid grid-cols-4 border-solid border-2 border-sky-500 text-white h-14 text-xl font-bold  ">
                 <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
-                        {col_1}
+                        {product_id}
                     </p>
                 </div>
                    
                 <div className="p-2 bg-sky-600">
                     <p className="flex justify-center">
-                        {col_2}
+                        {product_name}
                     </p>
                 </div>
                  
                  <div className="p-2 bg-sky-500">
                     <p className="flex justify-center">
-                        {col_3}
+                        {product_price}
                     </p>
                 </div>
 
                 <div className="p-2 bg-sky-600">
                     <p className="flex justify-center">
-                        {col_4}
+                        {product_amount}
                     </p>
                 </div>
             </div>

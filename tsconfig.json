@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/ProductList.tsx"
-  ],
+, "src/app/menu/inventory/add_stock"  ],
   "exclude": [
     "node_modules"
   ]

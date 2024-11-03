@@ -3,6 +3,7 @@ import Input from "@/components/Input";
 import InventoryList from "@/components/InventoryList";
 import InventoryListHeader from "@/components/InventoryListHeader";
 import NavLink from "@/components/NavLink";
+// import products from "@/app/data/products";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -41,13 +42,15 @@ export default function InventoryPage() {
             path: "/menu"
         },
         {
+            title: "Add stock",
+            path: "inventory/add_stock"
+        },
+        
+        {
             title: "New",
             path: "inventory/new-product"
         }
     ]
-
-   
-
     
     return (
         <>
@@ -70,11 +73,19 @@ export default function InventoryPage() {
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4 bg-white rounded-xl">
-                        <InventoryListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="In Stock"/>
+                        <InventoryListHeader product_id="Product ID" product_name="Name" product_price="Price" product_amount="In Stock"/>
                     <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        {products.map((product, index) => (
+                        {/* {products.map((product, index) => (
                             <InventoryList key={index} product_id={product.product_id} product_name={product.product_name} product_price={product.product_price} product_amount={product.product_amount}/>
-                        ))}
+                        ))} */}
+                        {/* <InventoryListHeader product_id="Product ID" product_name="Name" product_price="Price" product_amount="In Stock"/> */}
+                        <InventoryList product_id="PD-001" product_name="Glass_container" product_price={2500} product_amount={10}/>
+                        {/* <InventoryList product_id="PD-002" product_name="ปั๊มน้ำ" product_price="400" product_amount="4"/>
+                        <InventoryList product_id="PD-001" product_name="Glass-container" product_price="2500" product_amount="10"/>
+                        <InventoryList product_id="PD-002" product_name="Pump" product_price="400" product_amount="4"/>
+                        <InventoryList product_id="PD-003" product_name="สายยางใส" product_price="200" product_amount="12"/>
+                        <InventoryList product_id="PD-004" product_name="ฟองน้ำ" product_price="85" product_amount="11"/>
+                        <InventoryList product_id="PD-005" product_name="น้ำยาบำรุงน้ำ" product_price="112" product_amount="3"/> */}
                     </div>
                 </div>
             </div>

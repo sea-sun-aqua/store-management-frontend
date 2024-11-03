@@ -11,7 +11,7 @@ export default function RequestOrderPage() {
         },
         {
             title: "Complete (Temp)",
-            path: "/menu/sales/complete/request_order/new_sale/request/process"
+            path: "/menu/sales/complete/request_order/new_sale/request/process/complete"
         },
     ]
     
@@ -37,7 +37,7 @@ export default function RequestOrderPage() {
                         }
                     </ul>
 
-                    <div className="bg-sky-500 rounded-xl text-white">
+                    {/* <div className="bg-sky-500 rounded-xl text-white">
                         <div className="grid grid-cols-7 p-3">
                             <div className="flex justify-center pl-5 text-black">
                                 Transferring
@@ -66,7 +66,7 @@ export default function RequestOrderPage() {
                                 Completed
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="grid grid-flow-row grid-col-1 mx-32 my-4">
@@ -124,8 +124,8 @@ export default function RequestOrderPage() {
                             </div>
                         </div>
                         
-                        <RequestOrderListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount" col_5="Status"/>
-                        <RequestOrderList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5" col_5="Sending"/>
+                        <RequestOrderListHeader col_1="Product ID" col_2="Name" col_3="Price" col_4="Amount"/>
+                        <RequestOrderList col_1="PD-002" col_2="ปั๊มน้ำ" col_3="400" col_4="5"/>
                     </div>
                 </div>
             </div>

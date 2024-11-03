@@ -10,7 +10,7 @@ interface InventoryListProps {
 const InventoryList: React.FC<InventoryListProps> = ({ product_id, product_name, product_price, product_amount }) => {
     return (
         <Link href={"/menu/inventory/" + product_name + "/" + product_price + "/" + product_amount}>
-            <div className="p-1">
+            <div className="p-1 ">
                 <div className="grid grid-cols-4 border-solid border-2 border-sky-600">
                     <div className="p-2 bg-black text-white">
                         <p className="flex justify-center">
