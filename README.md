@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Inventory-management front-end
+
+## Feature
+- การสร้างสินค้า : เมื่อต้องการเพิ่มสินค้าใหม่ที่ไม่เคยมีในคลัง ต้องสร้างสินค้าใหม่เข้าคลัง
+- เพิ่มจำนวนสินค้า : เมื่อต้องการเพิ่มจำนวนสินค้านั้นๆที่มีอยู่ในคลัง
+- สร้างคำสั่งซื้อ : เมื่อมีการสั่งซื้อสินค้า ต้องสร้างคำสั่งซื้อขึ้นมาตามความต้องการลูกค้า โดยมีให้กรอกรายละเอียดต่างๆ และสินค้าที่ต้องการ
+- จัดการสถานะการสั่งซื้อ : เมื่อคำสั่งซื้อเสร็จสิ้น ต้องเปลี่ยนสถานะคำสั่งซื้อเป็น Completed
+
 
 ## Getting Started
 
-First, run the development server:
 
+#### หลังจาก clone project แล้วให้ติดตั้ง node package ด้วยคำสั่ง
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### run application ด้วยคำสั่ง
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### แล้วเปิด [http://localhost:3000](http://localhost:3000)  ที่ browsers เพื่อลองเล่น application จำเป็นต้องเชื่อต่อ database ก่อนเพื่อให้สามารถเข้าใช้งาน application ได้
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ผู้พัฒนา
+- 6510451051 Athirat Kaewwichien 
+- 6510451026 Aquarat Thitiwuttikorn
