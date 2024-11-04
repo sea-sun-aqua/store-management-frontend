@@ -1,18 +1,24 @@
 'use client'
 import axios from "axios";
 import Link from 'next/link'
+import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const generateProductId = (products : Product[]) => {
-    const newId = `P-${(products.length + 1).toString().padStart(4, '0')}`;
+    const newId = `PD${(products != null ? (products.length + 1) : 1).toString().padStart(4, '0')}`;
     return newId;
 };
 
 export default function InventoryProductPage() {
+  const router = useRouter()
+  const searchParams = useSearchParams();
+  const productString = searchParams.get('products')
+  const products: Product[] = productString ? JSON.parse(decodeURIComponent(productString)) : [];
+
+
     const [productName, setProductName] =  useState('');
     const [price, setPrice] = useState<number | ''>('');
     const [safetyStock, setSafetyStock] = useState<number | ''>('');
-    const [products, setProducts] = useState<Product[]>([]);
 
     // ฟังก์ชันจัดการการส่งฟอร์ม
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,10 +43,7 @@ export default function InventoryProductPage() {
       alert('เพิ่มสินค้าเรียบร้อยแล้ว');
 
       // เพิ่มข้อมูลสินค้าใหม่ใน state และรีเซ็ตฟิลด์ฟอร์ม
-      setProducts([...products, newProduct]);
-      setProductName('');
-      setPrice('');
-      setSafetyStock('');
+      router.push("/menu/inventory")
     } catch (error) {
       console.error('Error adding product:', error);
       alert('ไม่สามารถเพิ่มสินค้าได้');

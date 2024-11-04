@@ -1,14 +1,19 @@
 'use client'
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import products from '@/app/data/mock_products'
+import { useRouter, useSearchParams } from 'next/navigation';
+// import products from '@/app/data/mock_products'
 import Link from 'next/link'
 import axios from 'axios'
 
 
 const AddProduct = () => {
-  
+  // ดึงข้อมูล product จากหน้าที่แล้ว
+  const searchParams = useSearchParams();
+  const productString = searchParams.get('products')
+  const products: Product[] = productString ? JSON.parse(decodeURIComponent(productString)) : [];
+
+
   const [amounts, setAmounts] = useState<{ [key: string]: number }>({});
   const router = useRouter();
 
@@ -45,7 +50,7 @@ const AddProduct = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Add Product Quantities</h1>
-      <table className="min-w-full bg-white border border-gray-300">
+      <table className="min-w-full bg-white border border-gray-300 text-center">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b">Product ID</th>

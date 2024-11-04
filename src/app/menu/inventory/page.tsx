@@ -1,9 +1,6 @@
 'use client'
 import ProductList from '@/components/product-list'
-import InventoryList from "@/components/InventoryList";
-import InventoryListHeader from "@/components/InventoryListHeader";
 import Link from "next/link"
-import products from "@/app/data/mock_products";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -51,10 +48,10 @@ export default function InventoryPage() {
                         <Link href="/menu" className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
                             Back
                         </Link>
-                        <Link href="inventory/new-product" className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
+                        <Link href={`inventory/new-product?products=${encodeURIComponent(JSON.stringify(products))}`} className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
                             Create Product
                         </Link>
-                        <Link href="inventory/add_stock" className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
+                        <Link href={`inventory/add_stock?products=${encodeURIComponent(JSON.stringify(products))}`} className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
                             Add stock
                         </Link>
                     </ul>

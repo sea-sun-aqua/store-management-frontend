@@ -24,7 +24,7 @@ const SignIn: React.FC = () => {
         'Content-Type': 'application/json'
       }
       };
-      const response = await axios.post('https://fca7-158-108-228-146.ngrok-free.app/register', JSON.stringify({
+      const response = await axios.post('http://localhost:9000/register', JSON.stringify({
         staff_name: name,
         staff_email: email,
         staff_password: password1

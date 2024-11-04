@@ -15,14 +15,14 @@ const ProductList = ({ products }: ProductListProps) => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product: Product) => (
+            {products != null ? products.map((product: Product) => (
               <tr key={product.product_id}>
                 <td className="py-2 px-4 border-b">{product.product_id}</td>
                 <td className="py-2 px-4 border-b">{product.product_name}</td>
                 <td className="py-2 px-4 border-b">${product.product_price.toFixed(2)}</td>
                 <td className="py-2 px-4 border-b">{product.safety_stock_amount}</td>
               </tr>
-            ))}
+            )) : null}
           </tbody>
         </table>
       </div>

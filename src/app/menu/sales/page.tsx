@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import axios from "axios";
 import { useEffect, useState } from "react";
-import sampleOrders from "@/app/data/mock_orders";
+// import sampleOrders from "@/app/data/mock_orders";
 
 
 export default function SalesPage() {
@@ -16,27 +16,27 @@ export default function SalesPage() {
         router.push(`./sales/${order_id}`);
       };
     
-    // //fetch api data
-    // const [orders, setOrders] = useState<Order[]>([]);
-    // const [loading, setLoading] = useState<boolean>(true);
+    //fetch api data
+    const [orders, setOrders] = useState<Order[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
 
-    // useEffect(() => {
-    //   const fetchProducts = async () => {
-    //         try {
-    //             const response = await axios.get("https://fca7-158-108-228-146.ngrok-free.app/order");
-    //             setOrders(response.data);
-    //         }catch (error) {
-    //             console.error('Error     fetching products', error);
-    //         }finally {
-    //             setLoading(false);
-    //         }
-    //   }
-    //   fetchProducts();
-    // }, []);
+    useEffect(() => {
+      const fetchOrders = async () => {
+            try {
+                const response = await axios.get("http://localhost:9000/order");
+                setOrders(response.data);
+            }catch (error) {
+                console.error('Error fetching Orders', error);
+            }finally {
+                setLoading(false);
+            }
+      }
+      fetchOrders();
+    }, []);
 
-    // if (loading) {
-    //     return <p>Loading</p>
-    // }
+    if (loading) {
+        return <p>Loading</p>
+    }
     
     return (
         <>
@@ -50,7 +50,7 @@ export default function SalesPage() {
                         <Link href="/menu" className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
                             Back
                         </Link>
-                        <Link href="/menu/sales/complete/request_order/new_sale" className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
+                        <Link href={`/menu/sales/new-order?orders=${encodeURIComponent(JSON.stringify(orders))}`} className="p-4 bg-blue-500 hover:bg-blue-600 rounded-xl text-white">
                             New Order
                         </Link>
                     </ul>
@@ -69,16 +69,16 @@ export default function SalesPage() {
               </tr>
             </thead>
             <tbody>
-              {sampleOrders.map((order: Order) => (
+              {orders != null ? orders.map((order: Order) => (
                 <tr key={order.order_id} onClick={() => viewOrderDetails(order.order_id)}>
                   <td className="py-2 px-4 border-b">{order.order_id}</td>
-                  <td className="py-2 px-4 border-b">{order.order_created_date.toISOString()}</td>
+                  <td className="py-2 px-4 border-b">{order.order_created_date.toString()}</td>
                   <td className="py-2 px-4 border-b">{order.customer_name}</td>
-                  <td className="py-2 px-4 border-b">{order.staff.staff_name}</td>
+                  {/* <td className="py-2 px-4 border-b">{order.staff.staff_name}</td> */}
                   <td className="py-2 px-4 border-b">${getTotalOrder(order.products).toFixed(2)}</td>
                   <td className="py-2 px-4 border-b">{order.order_status}</td>
                 </tr>
-              ))}
+              )) : null}
             </tbody>
           </table>
         </div>
