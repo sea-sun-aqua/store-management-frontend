@@ -1,4 +1,5 @@
 'use client'
+import config from "@/config";
 import axios from "axios";
 import Link from 'next/link'
 import { useSearchParams, useRouter } from "next/navigation";
@@ -39,7 +40,11 @@ export default function InventoryProductPage() {
 
     try {
       // ส่งข้อมูลไปยัง API
-      await axios.post('http://localhost:9000/product', newProduct);
+      const configs = {
+        headers: {
+          'Content-Type': 'application/json'
+      }}
+      await axios.post(`${config.apiUrl}/product`, newProduct, configs);
       alert('เพิ่มสินค้าเรียบร้อยแล้ว');
 
       // เพิ่มข้อมูลสินค้าใหม่ใน state และรีเซ็ตฟิลด์ฟอร์ม

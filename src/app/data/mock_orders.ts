@@ -18,15 +18,13 @@ const sampleOrders: Order[] = [
             "product_id": "PD0001",
             "product_name": "Razer Blade 15 Laptop",
             "product_price": 1999,
-            "product_amount": 20,
-            "safety_stock_amount": 2
+            "order_amount": 20,
           },
           {
             "product_id": "PD0001",
             "product_name": "Apple Watch Series 9",
             "product_price": 399,
-            "product_amount": 100,
-            "safety_stock_amount": 10
+            "order_amount": 100,
           }  
       ]
     },
@@ -49,15 +47,13 @@ const sampleOrders: Order[] = [
             "product_id": "PD0001",
             "product_name": "Razer Blade 15 Laptop",
             "product_price": 1999,
-            "product_amount": 20,
-            "safety_stock_amount": 2
+            "order_amount": 20,
           },
           {
             "product_id": "PD0002",
             "product_name": "Apple Watch Series 9",
             "product_price": 399,
-            "product_amount": 100,
-            "safety_stock_amount": 10
+            "order_amount": 100,
           }  
       ]
     },

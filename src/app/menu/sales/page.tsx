@@ -1,30 +1,32 @@
 'use client'
-import Input from "@/components/Input";
-import SalesOrderRFQListHeader from "@/components/SalesOrderRFQListHeader";
+
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import sampleOrders from "@/app/data/mock_orders";
-
+import config from '@/config';
 
 export default function SalesPage() {
    
     const router = useRouter();
-    const viewOrderDetails = (order_id: string) => {
-        console.log(order_id)
-        router.push(`./sales/${order_id}`);
+    const viewOrderDetails = (order: Order) => {
+        router.push(`./sales/order?order=${encodeURIComponent(JSON.stringify(order))}`);
       };
     
     //fetch api data
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
-
+      
     useEffect(() => {
       const fetchOrders = async () => {
             try {
-                const response = await axios.get("http://localhost:9000/order");
+                const configs = {
+                  headers: {
+                    'Content-Type': 'application/json'
+                }}
+                const response = await axios.get(`${config.apiUrl}/order`, configs);
                 setOrders(response.data);
+                setLoading(true);
             }catch (error) {
                 console.error('Error fetching Orders', error);
             }finally {
@@ -70,11 +72,11 @@ export default function SalesPage() {
             </thead>
             <tbody>
               {orders != null ? orders.map((order: Order) => (
-                <tr key={order.order_id} onClick={() => viewOrderDetails(order.order_id)}>
+                <tr key={order.order_id} onClick={() => viewOrderDetails(order)}>
                   <td className="py-2 px-4 border-b">{order.order_id}</td>
                   <td className="py-2 px-4 border-b">{order.order_created_date.toString()}</td>
                   <td className="py-2 px-4 border-b">{order.customer_name}</td>
-                  {/* <td className="py-2 px-4 border-b">{order.staff.staff_name}</td> */}
+                  <td className="py-2 px-4 border-b">{order.staff.staff_name}</td>
                   <td className="py-2 px-4 border-b">${getTotalOrder(order.products).toFixed(2)}</td>
                   <td className="py-2 px-4 border-b">{order.order_status}</td>
                 </tr>
@@ -90,8 +92,8 @@ export default function SalesPage() {
 }
 
 
-function getTotalOrder(products: Product[]) :number {
+function getTotalOrder(products: ProductOrder[]) :number {
     return products.reduce((total, product) => {
-        return total + (product.product_price * product.product_amount);
+        return total + (product.product_price * product.order_amount);
     }, 0);
 }

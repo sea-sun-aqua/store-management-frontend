@@ -1,41 +1,41 @@
 'use client'
 
-import { useRouter, useParams } from 'next/navigation';
+import config from '@/config';
+import axios from 'axios';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import sampleOrders from "@/app/data/mock_orders";
-
 
 
 const OrderDetail = () => {
-    const { order_id } = useParams();
+    const searchParams = useSearchParams();
+    const orderString = searchParams.get('order')
+    const order: Order = orderString ? JSON.parse(decodeURIComponent(orderString)) : null;
+
     const router = useRouter();
-    const [isCompleted, setIsCompleted] = useState(false);
-    console.log(order_id)
-    const order = sampleOrders[0]
-    // const [order, setOrder] = useState<Order | null>(null);
+    const [isCompleted, setIsCompleted] = useState(order.order_status === "Completed" ? true : false);
 
-  useEffect(() => {
-    if (order_id) {
-    //   // ดึงข้อมูล order ตาม orderId จาก API
-    //   const fetchOrder = async () => {
-    //     const response = await fetch(`/api/orders/${orderId}`);
-    //     const data = await response.json();
-    //     setOrder(data);
-    //   };
+    const handleComplete = async () => {
 
-    //   fetchOrder();
-    // setOrder(sampleOrders[0])
-    }
-  }, [order_id]);
-
-  if (!order) {
-    return <p>Loading...</p>;
-  }
-
-const handleComplete = () => {
-    // เปลี่ยนสถานะ order เป็น complete
-    setIsCompleted(true);
     // สามารถเพิ่มการอัพเดตสถานะลงฐานข้อมูลได้ที่นี่
+    try {
+        const configs = {
+            headers: {
+              'Content-Type': 'application/json'
+        }}
+        const response = await axios.post(`${config.apiUrl}/order/${order.order_id}`, JSON.stringify({
+            order_status: "Completed",
+            products: order.products,
+            
+        }), configs)
+
+        console.log(response.data)
+        setIsCompleted(true);
+        alert("Completed")
+
+    } catch (err) {
+        console.error(err)
+        alert('Error Complete')
+    }
   };
 
 const handleBack = () => {
@@ -55,7 +55,7 @@ return (
         Products in this order:
       </h2>
       <ul className="space-y-4">
-        {order.products.map((product) => (
+        {order.products.map((product: ProductOrder) => (
           <li
             key={product.product_id}
             className="p-4 bg-gray-100 rounded-lg shadow-md"
@@ -63,7 +63,7 @@ return (
             <p className="text-lg font-medium text-gray-700">
               Name: {product.product_name}
             </p>
-            <p className="text-gray-600">Quantity: {product.product_amount}</p>
+            <p className="text-gray-600 ">Quantity: {product.order_amount}</p>
           </li>
         ))}
       </ul>

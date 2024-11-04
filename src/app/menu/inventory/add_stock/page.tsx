@@ -2,10 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-// import products from '@/app/data/mock_products'
 import Link from 'next/link'
 import axios from 'axios'
-
+import config from '@/config';
 
 const AddProduct = () => {
   // ดึงข้อมูล product จากหน้าที่แล้ว
@@ -28,13 +27,13 @@ const AddProduct = () => {
   const handleSave = () => {
     Object.entries(amounts).forEach(async ([id, amount]) => {
         try{
-            const config = {
+            const configs = {
                 headers: {
                   'Content-Type': 'application/json'
             }}
-            const response = await axios.post(`http://localhost:9000/product/${id}`, JSON.stringify({
+            const response = await axios.post(`${config.apiUrl}/product/${id}`, JSON.stringify({
                 product_amount: amount,
-            }), config)
+            }), configs)
 
             console.log(response.data);
         }catch(err){

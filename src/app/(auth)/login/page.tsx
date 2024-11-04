@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
+import config from '@/config';
 
 
 const Page: React.FC = () => {
@@ -13,15 +14,16 @@ const Page: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-        const config = {
+        config
+        const configs = {
         headers: {
           'Content-Type': 'application/json'
         }
         };
-        const response = await axios.post('http://localhost:9000/login', JSON.stringify({
+        const response = await axios.post(`${config.apiUrl}/login`, JSON.stringify({
             staff_email: email,
             staff_password: password
-        }), config)
+        }), configs)
 
         // ตรวจสอบว่าข้อมูลที่ต้องการอยู่ใน response อย่างถูกต้อง
         const userData: User = {

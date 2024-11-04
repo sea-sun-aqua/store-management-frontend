@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import config from '@/config';
 
 const SignIn: React.FC = () => {
   const [name, setName] = useState('');
@@ -19,16 +20,16 @@ const SignIn: React.FC = () => {
         throw new Error("Password Wrong");
       }
 
-      const config = {
+      const configs = {
       headers: {
         'Content-Type': 'application/json'
       }
       };
-      const response = await axios.post('http://localhost:9000/register', JSON.stringify({
+      const response = await axios.post(`${config.apiUrl}/register`, JSON.stringify({
         staff_name: name,
         staff_email: email,
         staff_password: password1
-    }), config)
+    }), configs)
 
       alert("Success Register")
 

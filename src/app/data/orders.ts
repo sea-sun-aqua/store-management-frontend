@@ -8,5 +8,5 @@ interface Order {
     order_status:string,
     order_created_date: Date,
     staff: User,
-    products: Product[],
+    products: ProductOrder[],
 }

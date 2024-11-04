@@ -3,20 +3,23 @@ import ProductList from '@/components/product-list'
 import Link from "next/link"
 import axios from "axios";
 import { useState, useEffect } from "react";
+import config from '@/config';
 
 
 
 export default function InventoryPage() {
     // fetch api data
     const [products, setProducts] = useState<Product[]>([]);
-    // const [staffs, setStaffs] = useState<User[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
       const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:9000/product");
-                // const response_staff = await axios.get("http://localhost:9000/");
+                const configs = {
+                    headers: {
+                      'Content-Type': 'application/json'
+                }}
+                const response = await axios.get(`${config.apiUrl}/product`, configs);
                 setProducts(response.data);
             }catch (error) {
                 console.error('Error fetching products', error);

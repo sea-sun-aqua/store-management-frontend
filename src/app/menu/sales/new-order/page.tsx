@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { useSearchParams, useRouter } from 'next/navigation';
+import config from '@/config';
 
 const CreateOrder = () => {
     //ดึงข้อมูล order ที่ส่งมา
@@ -14,13 +15,15 @@ const CreateOrder = () => {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     
+    //text field
     const [customerName, setCustomerName] = useState('');
     const [customerEmail, setCustomerEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('cash');
     const [productQuantities, setProductQuantities] = useState<{ [key: string]: number }>({});
-  
+
+    
     const handleQuantityChange = (productId: string, quantity: number) => {
       setProductQuantities((prev) => ({
         ...prev,
@@ -30,6 +33,9 @@ const CreateOrder = () => {
   
     const handleSubmit = async () => {
         try{
+          const date = new Date();
+          const dateString = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+          
             const orderData= {
                 order_id: generateOrderId(orders),
                 customer_name: customerName,
@@ -38,24 +44,25 @@ const CreateOrder = () => {
                 customer_address: address,
                 order_payment_method: paymentMethod,
                 order_status: "Pending",
-                order_created_date: new Date(),
+                order_created_date: dateString,
                 staff_id: getUserFromLocalStorage()?.staff_id,
                 products: products
                   .filter((product: Product) => productQuantities[product.product_id] > 0)
                   .map((product) => ({
                     product_id: product.product_id,
-                    product_amount: Number(productQuantities[product.product_id]),
+                    order_amount: Number(productQuantities[product.product_id]),
                   })),
               };
-            // console.log(orderData);
+            console.log(orderData);
       
-            // // ส่ง orderData ไปยังเซิร์ฟเวอร์หรือ API ที่ต้องการ
-            const config = {
+            // ส่ง orderData ไปยังเซิร์ฟเวอร์หรือ API ที่ต้องการ
+            const configs = {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             };
-            const response = await axios.post('http://localhost:9000/order', JSON.stringify(orderData), config)
+            const response = await axios.post(`${config.apiUrl}/order`, JSON.stringify(orderData), configs)
+            console.log(response.data);
             alert("Success Register")
             router.push('/menu/sales')
   
@@ -70,7 +77,12 @@ const CreateOrder = () => {
     useEffect(() => {
       const fetchProducts = async () => {
             try {
-                const response = await axios.get("http://localhost:9000/product");
+              const configs = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+              };
+                const response = await axios.get(`${config.apiUrl}/product`, configs);
                 setProducts(response.data);
             }catch (error) {
                 console.error('Error fetching products', error);
