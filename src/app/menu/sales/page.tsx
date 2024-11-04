@@ -2,11 +2,19 @@
 import Input from "@/components/Input";
 import SalesOrderRFQListHeader from "@/components/SalesOrderRFQListHeader";
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import sampleOrders from "@/app/data/mock_orders";
 
+
 export default function SalesPage() {
+   
+    const router = useRouter();
+    const viewOrderDetails = (order_id: string) => {
+        console.log(order_id)
+        router.push(`./sales/${order_id}`);
+      };
     
     // //fetch api data
     // const [orders, setOrders] = useState<Order[]>([]);
@@ -29,17 +37,6 @@ export default function SalesPage() {
     // if (loading) {
     //     return <p>Loading</p>
     // }
-
-    const navLinks = [
-        {
-            title: "Back",
-            path: "/menu"
-        },
-        {
-            title: "New",
-            path: "/menu/sales/complete/request_order/new_sale"
-        }
-    ]
     
     return (
         <>
@@ -57,56 +54,44 @@ export default function SalesPage() {
                             New Order
                         </Link>
                     </ul>
-
-                    <Input input="Search"/>
-
                 </div>
-
-                <div className="grid grid-flow-row grid-col-1 mx-32 my-4 bg-white rounded">
-                        <SalesOrderRFQListHeader col_1="Order ID" col_2="Date" col_3="Customer" col_4="Sales Person" col_5="Total" col_6="Status"/>
-                    <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
-                        {sampleOrders.map((order: Order, index) => (
-                           <SalesOrderRFQList key={index} order={order}/>
-                        ))}
-                    </div>
-                </div>
+                <div className="ml-5 mr-5 mt-5 p-5 bg-white rounded-xl">
+                <div className="text-center mx-auto p-4">
+          <table className="min-w-full bg-white border border-gray-300">
+            <thead>
+              <tr>
+                <th className="text-2xl py-2 px-4 border-b">Order ID</th>
+                <th className="text-2xl py-2 px-4 border-b">Date</th>
+                <th className="text-2xl py-2 px-4 border-b">Customer name</th>
+                <th className="text-2xl py-2 px-4 border-b">Sales person</th>
+                <th className="text-2xl py-2 px-4 border-b">Total</th>
+                <th className="text-2xl py-2 px-4 border-b">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sampleOrders.map((order: Order) => (
+                <tr key={order.order_id} onClick={() => viewOrderDetails(order.order_id)}>
+                  <td className="py-2 px-4 border-b">{order.order_id}</td>
+                  <td className="py-2 px-4 border-b">{order.order_created_date.toISOString()}</td>
+                  <td className="py-2 px-4 border-b">{order.customer_name}</td>
+                  <td className="py-2 px-4 border-b">{order.staff.staff_name}</td>
+                  <td className="py-2 px-4 border-b">${getTotalOrder(order.products).toFixed(2)}</td>
+                  <td className="py-2 px-4 border-b">{order.order_status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+                 </div>
             </div>
         </>
     )
     
 }
 
-const SalesOrderRFQList = ({order}: {order: Order}) => {
 
-    return (
-        <div className="p-1">
-          <div className="grid grid-cols-6 border-solid border-2 border-sky-600">
-            <div className="p-2 bg-black text-white">
-              <p className="flex justify-center">{order.order_id}</p>
-            </div>
-            
-            <div className="p-2 text-black">
-              <p className="flex justify-center">
-                {order.order_created_date.toString()}
-              </p>
-            </div>
-            
-            <div className="p-2 bg-black text-white">
-              <p className="flex justify-center">{order.customer_name}</p>
-            </div>
-    
-            <div className="p-2 text-black">
-              <p className="flex justify-center">{order.staff.staff_name}</p>
-            </div>
-    
-            <div className="p-2 bg-black text-white">
-              <p className="flex justify-center">{order.phone_number}</p>
-            </div>
-    
-            <div className="p-2 text-black">
-              <p className="flex justify-center">{order.order_status}</p>
-            </div>
-          </div>
-        </div>
-      );
-    };
+function getTotalOrder(products: Product[]) :number {
+    return products.reduce((total, product) => {
+        return total + (product.product_price * product.product_amount);
+    }, 0);
+}
